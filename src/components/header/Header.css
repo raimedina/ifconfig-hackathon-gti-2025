@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004b8d;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: white;
+  }
+  
+  .logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+  .title {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+  }
+  
+  @media (max-width: 600px) {
+    .title {
+      font-size: 14px;
+    }
+  }
+  
