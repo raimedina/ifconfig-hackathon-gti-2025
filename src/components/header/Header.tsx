@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -11,7 +11,10 @@ const Header: React.FC = () => {
   return (
     <header className="header">
        <div className="logo-title">
-        <div className="logo"></div>
+       <div className="logo">
+  <img src="/src/assets/brasaoFlorianopolis.png" alt="Brasão de Florianópolis" />
+</div>
+
         <div className="title">Prefeitura Municipal de Florianópolis</div>
       </div>
       

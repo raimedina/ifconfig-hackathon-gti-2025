@@ -1,42 +1,47 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #004b8d;
-    color: white;
-    padding: 10px 20px;
-  }
-  
-  .menu-toggle {
-    font-size: 24px;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: white;
-  }
-  
-  .logo-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo {
-    width: 40px;
-    height: 40px;
-    background-color: white;
-    border-radius: 50%;
-  }
-  
-  .title {
-    font-weight: bold;
-    font-size: 16px;
-    text-align: right;
-  }
-  
-  @media (max-width: 600px) {
-    .title {
-      font-size: 14px;
-    }
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1; /* cor de fundo clara, como na imagem */
+  color: #333; /* texto escuro */
+  padding: 3%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.menu-toggle {
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #666;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+ 
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: auto;
+  height: 100%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #666;
+  line-height: 1.2;
+  margin-left: 15px;
+}
+
