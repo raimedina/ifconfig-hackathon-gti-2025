@@ -1,0 +1,15 @@
+import Title from '../../components/title/Title'
+import './DetalhesPage.css'
+
+function Detalhes(){
+    return (
+        <>
+            <Title /> 
+            <div className='sub-title'>
+                <h4>Dados da licitação</h4>
+            </div>
+        </>
+    )
+}
+
+export default Detalhes

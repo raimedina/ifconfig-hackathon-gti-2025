@@ -1,0 +1,17 @@
+/*
+.title-container {
+  font-weight: 300;
+}
+
+.title-container .title-text {
+  color: #9b9b9b;
+}
+  */
+
+.sub-title {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #676a6c;
+}
