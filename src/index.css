@@ -5,7 +5,6 @@
   box-sizing: content-box;
 }
 
-/* Estilos aplicados diretamente a html e body */
 html, body {
   height: 100%;
   width: 100%;

@@ -69,7 +69,7 @@ select:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 100%;
-  padding: 10px 36px 10px 10px; /* espaço à direita para o ícone */
+  padding: 10px 36px 10px 10px; 
   font-size: 14px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -82,7 +82,7 @@ select:focus {
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none; /* deixa o ícone clicável por baixo */
+  pointer-events: none; 
   color: #555;
   font-size: 16px;
 }

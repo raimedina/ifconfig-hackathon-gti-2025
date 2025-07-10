@@ -5,7 +5,6 @@
   font-family: Arial, sans-serif;
 }
 
-/* Cabeçalho (visível só em desktop) */
 .card-list-header {
   display: none;
 }
@@ -23,7 +22,6 @@
   position: relative;
 }
 
-/* Ícones (botão acessibilidade e link externo) */
 .card-icons {
   display: flex;
   gap: 8px;
@@ -41,7 +39,6 @@
   color: #004b8d;
 }
 
-/* Label + valor */
 .card-item {
   display: flex;
   flex-direction: column;
@@ -58,7 +55,6 @@
   color: #333;
 }
 
-/* Objeto */
 .card-objeto {
   font-style: italic;
   color: #555;
@@ -68,7 +64,6 @@
   padding-top: 8px;
 }
 
-/* Desktop */
 @media (min-width: 768px) {
   .card-list-header {
     display: flex;

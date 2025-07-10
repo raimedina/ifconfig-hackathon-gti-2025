@@ -1,4 +1,5 @@
 import './CardList.css';
+import { Link } from "react-router-dom";
 
 interface Card {
   numero: string;
@@ -116,9 +117,9 @@ const CardList: React.FC = () => {
         <div className="card" key={index}>
           <div className="card-icons">
             {card.link && (
-              <a href={card.link} title="Abrir link externo" target="_blank" rel="noopener noreferrer">
-                🔗
-              </a>
+              <Link to={`/detalhes/${encodeURIComponent(card.numero)}`} title="Ver detalhes">
+              🔗
+            </Link>
             )}
           </div>
 
