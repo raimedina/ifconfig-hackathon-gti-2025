@@ -18,7 +18,7 @@
 }
 
 .pagination-button.anterior {
-  background-color: #7db2d6; /* azul mais claro */
+  background-color: #7db2d6; 
 }
 
 .pagination-button.anterior:hover:not(:disabled) {
@@ -26,7 +26,7 @@
 }
 
 .pagination-button.proxima {
-  background-color: #3482b3; /* azul mais escuro */
+  background-color: #3482b3; 
 }
 
 .pagination-button.proxima:hover:not(:disabled) {
