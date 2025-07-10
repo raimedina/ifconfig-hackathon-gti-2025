@@ -1,7 +1,7 @@
 import { FaDownload, FaChevronRight } from "react-icons/fa";
-import "./DetalhesPage.css";
+import "./DetailsPage.css";
 
-export const DetalhesPage = () => {
+export const DetailsPage = () => {
   const { numero } = useParams();
 
   return (

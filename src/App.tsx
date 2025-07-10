@@ -1,11 +1,12 @@
 import './index.css'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Licitacao from './pages/home/LicitacaoPage'
-import { DetalhesPage } from './pages/details/DetalhesPage'
+import { DetailsPage } from './pages/details/DetailsPage'
 import NotFoundPage from './pages/notFound/NotFoundPage'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
-import Dashboard from './pages/dashboard/DashboardPage'
+import BIPage from './pages/BI/BIPage'
+import IAPage from './pages/IAPage/IAPage'
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Licitacao />} />
-        <Route path="/detalhes/:numero" element={<DetalhesPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/details/:number" element={<DetailsPage />} />
+        <Route path="/bipage" element={<BIPage/>} />
+        <Route path="/iapage" element={<IAPage/>} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
