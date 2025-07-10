@@ -117,7 +117,7 @@ const CardList: React.FC = () => {
         <div className="card" key={index}>
           <div className="card-icons">
             {card.link && (
-              <Link to={`/detalhes/${encodeURIComponent(card.numero)}`} title="Ver detalhes">
+              <Link to={`/details/${encodeURIComponent(card.numero)}`} title="Ver detalhes">
               🔗
             </Link>
             )}
