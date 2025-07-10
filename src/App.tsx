@@ -7,19 +7,22 @@ import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import BIPage from './pages/BI/BIPage'
 import IAPage from './pages/IAPage/IAPage'
+import Body from './components/body/Body'
 
 function App() {
 
   return (
     <Router>
       <Header />
-      <Routes>
+      <Body>
+        <Routes>
         <Route path="/" element={<Licitacao />} />
         <Route path="/details/:number" element={<DetailsPage />} />
         <Route path="/bipage" element={<BIPage/>} />
         <Route path="/iapage" element={<IAPage/>} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
+      </Body>
       <Footer />
     </Router>
   )
