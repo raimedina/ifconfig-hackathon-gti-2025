@@ -1,17 +1,105 @@
-/*
-.title-container {
-  font-weight: 300;
+.detalhes-container {
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #333;
 }
 
-.title-container .title-text {
-  color: #9b9b9b;
+.breadcrumb {
+  font-size: 0.75rem;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
-  */
 
-.sub-title {
+.breadcrumb span {
+  color: #0078d4;
+  font-weight: bold;
+}
+
+.titulo-pagina {
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.titulo-edital {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.bloco {
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.objeto {
+  margin: 0.5rem 0;
+}
+
+.destaque {
+  font-weight: bold;
+}
+
+.subtitulo {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
-  font-family: 'Roboto', sans-serif;
-  color: #676a6c;
+  color: #000;
+}
+
+.subtitulo.azul {
+  color: #0d6efd;
+}
+
+.subtitulo .linha {
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  margin-left: 0.5rem;
+}
+
+.item-card {
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.item-card .icone-seta {
+  color: #0078d4;
+  margin: 0 0.25rem;
+  font-size: 0.75rem;
+}
+
+.doc-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f4f4;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.icone-download {
+  font-size: 1rem;
+  color: #0d6efd;
+  cursor: pointer;
+}
+
+.atualizado {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 2rem;
+}
+
+.linha-dados {
+  display: flex;
+  align-items: center;
 }

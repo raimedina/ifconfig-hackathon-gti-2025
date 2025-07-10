@@ -5,7 +5,6 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-content">
 
-        {/* Receita */}
         <div className="footer-column">
           <h4>Receita</h4>
           <ul>
@@ -17,7 +16,6 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Despesa */}
         <div className="footer-column">
           <h4>Despesa</h4>
           <ul>
@@ -35,7 +33,6 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Compras */}
         <div className="footer-column">
           <h4>Compras</h4>
           <ul>
@@ -53,7 +50,6 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Gestão Pública */}
         <div className="footer-column">
           <h4>Gestão Pública</h4>
           <ul>
@@ -71,7 +67,6 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Transparência e Contato */}
         <div className="footer-column">
           <h4>Transparência</h4>
           <ul>
