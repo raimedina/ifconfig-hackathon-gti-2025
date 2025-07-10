@@ -1,0 +1,11 @@
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 10px 20px;
+    list-style: none;
+    background-color: #004b8d;
+    color: #f0f0f0;
+    margin: 0;
+}

@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
             Florianópolis - SC<br />
             CEP: 88.010-102
           </address>
-          <img src="/logo-prefeitura.png" alt="Prefeitura de Florianópolis" className="footer-logo" />
+          <img src="/src/assets/brasaoFlorianopolis.png" alt="Prefeitura de Florianópolis" className="footer-logo" />
         </div>
 
       </div>
