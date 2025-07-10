@@ -1,10 +1,14 @@
 import './Title.css'
 import { FaSave } from "react-icons/fa";
 
-function Title() {
+interface TitleProps {
+    text: string
+}
+
+function Title(props: TitleProps) {
     return (
-        <div className="title-container">
-            <span className="title-text">Compras - Licitações</span>
+        <div className="title-container"> 
+            <span className="title-text">{ props.text }</span>
             <FaSave className="title-icon" />
         </div>
     )

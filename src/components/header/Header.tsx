@@ -10,12 +10,14 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-       <div className="logo-title">
-       <div className="logo">
-  <img src="/src/assets/brasaoFlorianopolis.png" alt="Brasão de Florianópolis" />
-</div>
+      <div className="logo-title">
+        <a href="/">
+          <div className="logo">
+            <img src="/src/assets/brasaoFlorianopolis.png" alt="Brasão de Florianópolis" />
+          </div>
 
-        <div className="title">Prefeitura Municipal de Florianópolis</div>
+          <div className="title">Prefeitura Municipal de Florianópolis</div>
+        </a>
       </div>
       
       <button className="menu-toggle" onClick={toggleMenu}>

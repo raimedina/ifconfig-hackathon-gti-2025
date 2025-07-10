@@ -45,3 +45,16 @@
   margin-left: 15px;
 }
 
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  all: unset;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 10px;
+  cursor: pointer;
+}
+

@@ -7,7 +7,7 @@ function Licitacao() {
 
   return (
     <>
-      <Title />
+      <Title text="Compras - Licitações" />
       <Form />
       <CardList />
       <Pagination totalPages={10} onPageChange={(page) => console.log(`Page changed to: ${page}`)}></Pagination>
