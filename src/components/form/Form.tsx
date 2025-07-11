@@ -50,6 +50,21 @@ const Form: React.FC = () => {
     setEndDate(nextYear.toDateString())
   }, [])
 
+   const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newStart = e.target.value
+    setStartDate(newStart)
+    if (newStart > endDate) {
+      setEndDate(newStart)
+    }
+   }
+
+   const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEnd = e.target.value
+    if (newEnd >= startDate) {
+      setEndDate(newEnd)
+    }
+   }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Formulário enviado:', formData);
@@ -85,7 +100,8 @@ const Form: React.FC = () => {
           id="data-inicial"
           required
           value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
+          onChange={handleStartDateChange}
+          max={endDate}
         />
       </div>
 
@@ -97,7 +113,8 @@ const Form: React.FC = () => {
           id="data-final"
           required
           value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
+          onChange={handleEndDateChange}
+          min={startDate}
         />
       </div>
 
