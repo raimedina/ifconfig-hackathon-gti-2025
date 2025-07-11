@@ -20,9 +20,21 @@ const Header: React.FC = () => {
         </a>
       </div>
       
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {isOpen ? '✕' : '☰'}
+      <div className="menu-container">
+      <button className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <span />
+        <span />
+        <span />
       </button>
+
+      <nav className={`nav-menu ${isOpen ? 'show' : ''}`}>
+        <ul>
+            <li className="nav-item"><a href="/">Página Inicial</a></li>
+            <li className="nav-item"><a href="/bipage">Dashboard BI</a></li>
+            <li className="nav-item"><a href="iapage">Assistente Virtual</a></li>
+        </ul>
+      </nav>
+    </div>
 
      
     </header>

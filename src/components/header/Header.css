@@ -9,14 +9,6 @@
 
 }
 
-.menu-toggle {
-  font-size: 24px;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: #666;
-}
-
 .logo-title {
   display: flex;
   align-items: center;
@@ -58,3 +50,82 @@ a:focus {
   cursor: pointer;
 }
 
+
+.menu-container {
+  position: relative;
+}
+
+/* Botão hambúrguer */
+.hamburger {
+  position: relative;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  margin: 4px 0;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Animação do botão quando aberto */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Menu lateral */
+
+.nav-menu {
+    position: fixed;
+    top: 68px;
+    right: 0;
+    transform: translateX(100%);
+    width: 100%;
+    list-style: none;
+    background-color: #004b8d;
+    color: #f0f0f0;
+    margin: 0;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+.nav-menu.show {
+  transform: translateX(0);
+}
+
+.nav-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 10px 20px;
+  gap: 5px;
+}
+
+.nav-menu li {
+  padding: 15px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
