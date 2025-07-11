@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Form.css';
 import { FaAngleRight, FaAngleDown } from 'react-icons/fa';
-
+import dados from '../../../BE/dados.json';
 
 interface FormData {
   unidadeGestora: string;
@@ -12,9 +12,16 @@ interface FormData {
   palavraChave: string;
 }
 
-const unidadeGestoraOptions = ['IFSC', 'Prefeitura', 'Outros'];
-const modalidadeOptions = ['Pregão', 'Concorrência', 'Dispensa'];
-const situacaoOptions = ['Aberta', 'Encerrada', 'Em andamento'];
+interface FormProps {
+  onFiltrar: (resultados: typeof dados.registros) => void;
+}
+
+const unidadeGestoraOptions = [
+  'Prefeitura Municipal',
+  'Fundo Municipal de Educação do Município',
+];
+const modalidadeOptions = ['Pregão', 'Tomada de Preço'];
+const situacaoOptions = ['Homologado', 'Vencedor'];
 
 const today = new Date();
 const nextYear = new Date();
@@ -24,139 +31,180 @@ const formatDate = (date: Date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
+  return `${year}-${month}-${day}`;
 };
 
-const Form: React.FC = () => {
+const Form: React.FC<FormProps> = ({ onFiltrar }) => {
   const [formData, setFormData] = useState<FormData>({
     unidadeGestora: '',
-    dataInicio: formatDate(today),
+    dataInicio: '2000-01-01', 
     dataFim: formatDate(nextYear),
     modalidade: '',
     situacao: '',
     palavraChave: '',
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
-
-  useEffect(() => {
-    setStartDate(today.toDateString())
-    setEndDate(nextYear.toDateString())
-  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Formulário enviado:', formData);
+  
+    console.log('🔍 Dados do formulário:', formData);
+  
+    const resultadosFiltrados = dados.registros.filter((item, index) => {
+      const lic = item.registro.licitacao;
+      const gestor = item.registro.unidadeGestora?.denominacao?.toLowerCase() || '';
+      const objeto = lic.objetoResumido?.toLowerCase() || '';
+      const modalidade = lic.modalidade?.toLowerCase() || '';
+      const dataAbertura = new Date(lic.aberturaData);
+      const palavra = formData.palavraChave.toLowerCase();
+  
+      const filtroGestora =
+        !formData.unidadeGestora ||
+        gestor.includes(formData.unidadeGestora.toLowerCase());
+      const filtroModalidade =
+        !formData.modalidade ||
+        modalidade === formData.modalidade.toLowerCase();
+      const filtroSituacao =
+        !formData.situacao ||
+        item.registro.listItens?.some((i) =>
+          i.situacao?.toLowerCase().includes(formData.situacao.toLowerCase())
+        );
+      const filtroPalavra =
+        !formData.palavraChave || objeto.includes(palavra);
+      const filtroDataInicio =
+        !formData.dataInicio || dataAbertura >= new Date(formData.dataInicio);
+      const filtroDataFim =
+        !formData.dataFim || dataAbertura <= new Date(formData.dataFim);
+  
+      console.log(`📦 Item ${index + 1}:`);
+      console.log('  ➤ Unidade Gestora:', gestor, ' | filtro:', filtroGestora);
+      console.log('  ➤ Modalidade:', modalidade, ' | filtro:', filtroModalidade);
+      console.log('  ➤ Situação:', item.registro.listItens?.map(i => i.situacao), ' | filtro:', filtroSituacao);
+      console.log('  ➤ Palavra-chave:', objeto, ' | filtro:', filtroPalavra);
+      console.log('  ➤ Abertura:', lic.aberturaData, ' | Início OK?', filtroDataInicio, ' | Fim OK?', filtroDataFim);
+  
+      return (
+        filtroGestora &&
+        filtroModalidade &&
+        filtroSituacao &&
+        filtroPalavra &&
+        filtroDataInicio &&
+        filtroDataFim
+      );
+    });
+  
+    console.log('✅ Resultados filtrados:', resultadosFiltrados.length);
+    onFiltrar(resultadosFiltrados);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <div className="form-group">
-        <label htmlFor="unidadeGestora">Unidade gestora</label>
-        <div className="select-wrapper">
-          <select
-            id="unidadeGestora"
-            name="unidadeGestora"
-            value={formData.unidadeGestora}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Selecione</option>
-            {unidadeGestoraOptions.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-          <FaAngleDown className="select-icon" />
+    <div className="form-wrapper">
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <label htmlFor="unidadeGestora">Unidade gestora</label>
+          <div className="select-wrapper">
+            <select
+              id="unidadeGestora"
+              name="unidadeGestora"
+              value={formData.unidadeGestora}
+              onChange={handleInputChange}
+            >
+              <option value="">Selecione</option>
+              {unidadeGestoraOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <FaAngleDown className="select-icon" />
+          </div>
         </div>
-      </div>
 
-
-      <div className="form-group">
-        <label htmlFor="data-inicial">Data Inicial</label>
-        <input
-          type="date"
-          name="data-inicial"
-          id="data-inicial"
-          required
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="data-final">Data Final</label>
-        <input
-          type="date"
-          name="data-final"
-          id="data-final"
-          required
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-        />
-      </div>
-
-
-      <div className="form-group">
-        <label htmlFor="modalidade">Modalidade</label>
-        <div className="select-wrapper">
-          <select
-            id="modalidade"
-            name="modalidade"
-            value={formData.modalidade}
+        <div className="form-group">
+          <label htmlFor="dataInicio">Data Inicial</label>
+          <input
+            type="date"
+            name="dataInicio"
+            id="dataInicio"
+            value={formData.dataInicio}
             onChange={handleInputChange}
-            required
-          >
-            <option value="">Selecione</option>
-            {modalidadeOptions.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-          <FaAngleDown className="select-icon" />
+          />
         </div>
-      </div>
 
-      <div className="form-group">
-        <label htmlFor="situacao">Situação</label>
-        <div className="select-wrapper">
-          <select
-            id="situacao"
-            name="situacao"
-            value={formData.situacao}
+        <div className="form-group">
+          <label htmlFor="dataFim">Data Final</label>
+          <input
+            type="date"
+            name="dataFim"
+            id="dataFim"
+            value={formData.dataFim}
             onChange={handleInputChange}
-            required
-          >
-            <option value="">Selecione</option>
-            {situacaoOptions.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-          <FaAngleDown className="select-icon" />
+          />
         </div>
-      </div>
 
-      <div className="form-group">
-        <label htmlFor="palavraChave">Palavra-chave</label>
-        <input
-          type="text"
-          id="palavraChave"
-          name="palavraChave"
-          value={formData.palavraChave}
-          onChange={handleInputChange}
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label htmlFor="modalidade">Modalidade</label>
+          <div className="select-wrapper">
+            <select
+              id="modalidade"
+              name="modalidade"
+              value={formData.modalidade}
+              onChange={handleInputChange}
+            >
+              <option value="">Selecione</option>
+              {modalidadeOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <FaAngleDown className="select-icon" />
+          </div>
+        </div>
 
-      <button type="submit" className="consultar-btn">
-        <FaAngleRight className="icon" />
-        Consultar
-      </button>
-    </form>
+        <div className="form-group">
+          <label htmlFor="situacao">Situação</label>
+          <div className="select-wrapper">
+            <select
+              id="situacao"
+              name="situacao"
+              value={formData.situacao}
+              onChange={handleInputChange}
+            >
+              <option value="">Selecione</option>
+              {situacaoOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            <FaAngleDown className="select-icon" />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="palavraChave">Palavra-chave</label>
+          <input
+            type="text"
+            id="palavraChave"
+            name="palavraChave"
+            value={formData.palavraChave}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <button type="submit" className="consultar-btn">
+          <FaAngleRight className="icon" />
+          Consultar
+        </button>
+      </form>
+    </div>
   );
 };
 
