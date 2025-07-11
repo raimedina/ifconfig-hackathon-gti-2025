@@ -1,93 +1,60 @@
-import './CardList.css'
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import Pagination from '../pagination/Pagination';
+import './CardList.css';
 
-interface Card {
-  numero: string
-  modalidade: string
-  unidadeGestora: string
-  dataAbertura: string
-  situacao: string
-  tituloObjeto: string
-  link?: string
+interface Registro {
+  registro: {
+    licitacao: {
+      numero: string;
+      modalidade: string;
+      aberturaData: string;
+      objetoResumido: string;
+    };
+    unidadeGestora: {
+      denominacao: string;
+    };
+  };
 }
 
-const CardList: React.FC = () => {
-  const [cardsData, setCardsData] = useState<Card[]>([])
-  const [loading, setLoading] = useState(true)
+interface CardListProps {
+  registros: Registro[];           // dados já filtrados ou todos
+  currentPage: number;             // página atual
+  onPageChange: (page: number) => void; // função que muda a página
+}
+
+const itemsPerPage = 5;
+
+const CardList: React.FC<CardListProps> = ({ registros, currentPage, onPageChange }) => {
+  const [pageData, setPageData] = useState<Registro[]>([]);
+
+  const totalPages = Math.ceil(registros.length / itemsPerPage);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/licitacoes')
-      .then((res) => res.json())
-      .then((data) => {
-        const cards = data.registros.map((item: any) => {
-          const lic = item.registro.licitacao
-          return {
-            numero: lic.numero,
-            modalidade: lic.modalidade,
-            unidadeGestora: item.registro.unidadeGestora?.denominacao || 'Não informado',
-            dataAbertura: lic.aberturaData,
-            situacao: lic.formaJulgamento, // ou outro campo desejado
-            tituloObjeto: lic.objetoResumido,
-            link: item.registro.listTextos?.[0]?.link // ou undefined
-          }
-        })
-        setCardsData(cards)
-        setLoading(false)
-      })
-      .catch((error) => {
-        console.error('Erro ao carregar licitações:', error)
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) return <div>Carregando licitações...</div>
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    setPageData(registros.slice(start, end));
+  }, [currentPage, registros]);
 
   return (
     <div className="card-list">
-      <div className="card-list-header">
-        <div>Número</div>
-        <div>Modalidade</div>
-        <div>Unidade Gestora Participante</div>
-        <div>Data de Abertura</div>
-        <div>Situação</div>
-      </div>
+      {pageData.length > 0 ? (
+        pageData.map((item) => (
+          <div key={item.registro.licitacao.numero} className="card">
+            <h3>{item.registro.licitacao.numero} - {item.registro.licitacao.modalidade}</h3>
+            <p><strong>Unidade Gestora:</strong> {item.registro.unidadeGestora.denominacao}</p>
+            <p><strong>Abertura:</strong> {item.registro.licitacao.aberturaData}</p>
+            <p><strong>Objeto:</strong> {item.registro.licitacao.objetoResumido}</p>
+          </div>
+        ))
+      ) : (
+        <p>Nenhuma licitação encontrada.</p>
+      )}
 
-      {cardsData.map((card, index) => (
-        <div className="card" key={index}>
-          <div className="card-icons">
-            {card.link && (
-              <Link to={`/details/${encodeURIComponent(card.numero)}`} title="Ver detalhes">
-                🔗
-              </Link>
-            )}
-          </div>
-
-          <div className="card-item">
-            <div className="card-item-label">Número</div>
-            <div className="card-item-value">{card.numero}</div>
-          </div>
-          <div className="card-item">
-            <div className="card-item-label">Modalidade</div>
-            <div className="card-item-value">{card.modalidade}</div>
-          </div>
-          <div className="card-item">
-            <div className="card-item-label">Unidade gestora participante</div>
-            <div className="card-item-value">{card.unidadeGestora}</div>
-          </div>
-          <div className="card-item">
-            <div className="card-item-label">Data de abertura</div>
-            <div className="card-item-value">{card.dataAbertura}</div>
-          </div>
-          <div className="card-item">
-            <div className="card-item-label">Situação</div>
-            <div className="card-item-value">{card.situacao}</div>
-          </div>
-          <div className="card-objeto">{card.tituloObjeto}</div>
-        </div>
-      ))}
+      {totalPages > 1 && (
+        <Pagination totalPages={totalPages} onPageChange={onPageChange} />
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default CardList
+export default CardList;
