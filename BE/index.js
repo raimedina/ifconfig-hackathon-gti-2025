@@ -16,7 +16,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 })
 
-// Função para buscar em todos os campos do JSON
+
 function buscarNoJson(message) {
   const termo = message.toLowerCase()
   
@@ -45,9 +45,10 @@ function buscarNoJson(message) {
   return null
 }
 
-// Endpoint principal do chat
+
 app.post('/api/chat', async (req, res) => {
   const { message } = req.body
+  console.log('→ Pergunta recebida:', message)
 
   const respostaJson = buscarNoJson(message)
 
@@ -57,6 +58,23 @@ app.post('/api/chat', async (req, res) => {
 
   // Fallback: usar OpenAI
   try {
+    const numeroMatch = message.match(/\d{8,9}/)
+    const numero = numeroMatch ? numeroMatch[0] : null
+    console.log('→ Número extraído:', numero)
+
+    if (numero) {
+      const licitacao = encontrarLicitacao(numero)
+
+      if (licitacao) {
+        const resposta = interpretarPergunta(message, licitacao)
+        return res.json({
+          response: resposta || 'Não consegui interpretar a pergunta com base na licitação.',
+          fonte: 'json'
+        })
+      }
+    }
+
+    console.log('→ Enviando pergunta para OpenAI...')
     const completion = await openai.chat.completions.create({
       messages: [{ role: 'user', content: message }],
       model: 'gpt-3.5-turbo'
@@ -64,11 +82,17 @@ app.post('/api/chat', async (req, res) => {
 
     return res.json({ response: completion.choices[0].message.content, from: 'openai' })
   } catch (error) {
-    console.error('Erro com a OpenAI:', error)
-    res.status(500).json({ error: 'Erro ao se comunicar com a OpenAI' })
+    console.error('❌ Erro no servidor:', error)
+    res.status(500).json({ error: 'Erro no servidor.' })
   }
 })
 
+// 🔍 Rota para listar todas as licitações
+app.get('/api/licitacoes', (req, res) => {
+  res.json(licitacoesData)
+})
+
+// 🚀 Inicialização
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`)
+  console.log(`🚀 Servidor rodando em http://localhost:${port}`)
 })
