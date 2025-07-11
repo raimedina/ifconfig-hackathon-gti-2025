@@ -134,6 +134,7 @@ const Form: React.FC<FormProps> = ({ onFiltrar }) => {
             id="dataInicio"
             value={formData.dataInicio}
             onChange={handleInputChange}
+            max={formData.dataFim}
           />
         </div>
 
@@ -145,6 +146,7 @@ const Form: React.FC<FormProps> = ({ onFiltrar }) => {
             id="dataFim"
             value={formData.dataFim}
             onChange={handleInputChange}
+            min={formData.dataInicio}
           />
         </div>
 

@@ -25,7 +25,25 @@ function IAPage() {
       })
 
       const data = await response.json()
-      setMessages([...newMessages, { sender: 'bot', text: data.response }])
+
+      const botMessage = { sender: 'bot', text: data.response }
+
+      // Se vier "detalhes" no JSON, adiciona texto extra com info
+      if (data.from === 'json' && data.detalhes) {
+        const { numero, modalidade, objeto, advogado, unidadeGestora, link } = data.detalhes
+        const detalhesTexto = `
+         Nº: ${numero}
+         Modalidade: ${modalidade}
+         Objeto: ${objeto}
+          Advogado: ${advogado}
+          Unidade Gestora: ${unidadeGestora}
+          Link: ${link}
+        `.trim()
+        setMessages([...newMessages, botMessage, { sender: 'bot', text: detalhesTexto }])
+      } else {
+        setMessages([...newMessages, botMessage])
+      }
+
     } catch (err) {
       console.error('Erro:', err)
       setMessages([...newMessages, { sender: 'bot', text: 'Erro ao conectar com o assistente.' }])
@@ -39,26 +57,31 @@ function IAPage() {
         <h4>Converse com nosso assistente virtual e tire dúvidas sobre as licitações.</h4>
       </div>
 
-      <div className="chat-box">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
-            {msg.sender === 'bot' && <FaRobot className="icon" />}
-            <div className="bubble">{msg.text}</div>
+      <div className="chat-wrapper">
+        <div className="chat-box">
+          {messages.map((msg, index) => (
+            <div key={index} className={`message ${msg.sender}`}>
+              {msg.sender === 'bot' && <FaRobot className="icon" />}
+              <div className="bubble">
+                {msg.text.split('\n').map((line, i) => (
+                  <div key={i}>{line}</div>
+                ))}
+              </div>
+            </div>
+          ))}
+          <div className="chat-input">
+            <input
+              type="text"
+              placeholder="Digite uma mensagem..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+            />
+            <button onClick={handleSend}>
+              <IoMdSend />
+            </button>
           </div>
-        ))}
-      </div>
-
-      <div className="chat-input">
-        <input
-          type="text"
-          placeholder="Digite uma mensagem..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-        />
-        <button onClick={handleSend}>
-          <IoMdSend />
-        </button>
+        </div>
       </div>
     </div>
   )
