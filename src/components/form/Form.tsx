@@ -58,6 +58,13 @@ const Form: React.FC = () => {
     }
    }
 
+   const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEnd = e.target.value;
+    if (newEnd >= startDate) {
+      setEndDate(newEnd);
+    }
+  };
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,18 +103,6 @@ const Form: React.FC = () => {
           max={endDate}
         />
       </div>
-
-      <div className="form-group">
-        <label htmlFor="data-final">Data Final</label>
-        <input
-          type="date"
-          name="data-final"
-          id="data-final"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-        />
-      </div>
-
 
       <div className="form-group">
         <label htmlFor="data-final">Data Final</label>
