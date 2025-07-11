@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import Title from '../../components/title/Title'
 import './IAPage.css'
@@ -5,6 +6,11 @@ import { FaRobot } from 'react-icons/fa'
 import { IoMdSend } from 'react-icons/io'
 
 function IAPage() {
+
+  return (
+    <div className="chatbot-container">
+      <Title text="Assistente Virtual" />
+     
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([
     { sender: 'bot', text: 'Olá! Em que posso ajudar?' }
@@ -40,6 +46,25 @@ function IAPage() {
       </div>
 
       <div className="chat-box">
+        <div className="message bot">
+          <FaRobot className="icon" />
+          <div className="bubble">Olá! Em que posso ajudar?</div>
+        </div>
+
+        <div className="message user">
+          <div className="bubble">Quais são as licitações abertas?</div>
+        </div>
+
+        <div className="message bot">
+          <FaRobot className="icon" />
+          <div className="bubble">Essas são as licitações em aberto no momento: ...</div>
+        </div>
+      </div>
+
+      <div className="chat-input">
+        <input type="text" placeholder="Digite uma mensagem..." />
+        <button>
+
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
             {msg.sender === 'bot' && <FaRobot className="icon" />}
@@ -64,4 +89,5 @@ function IAPage() {
   )
 }
 
-export default IAPage
+export default IAPage;
+

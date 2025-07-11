@@ -50,6 +50,15 @@ const Form: React.FC = () => {
     setEndDate(nextYear.toDateString())
   }, [])
 
+   const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newStart = e.target.value
+    setStartDate(newStart)
+    if (newStart > endDate) {
+      setEndDate(newStart)
+    }
+   }
+
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Formulário enviado:', formData);
@@ -83,9 +92,9 @@ const Form: React.FC = () => {
           type="date"
           name="data-inicial"
           id="data-inicial"
-          required
           value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
+          onChange={handleStartDateChange}
+          max={endDate}
         />
       </div>
 
@@ -98,6 +107,20 @@ const Form: React.FC = () => {
           required
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
+        />
+      </div>
+
+
+      <div className="form-group">
+        <label htmlFor="data-final">Data Final</label>
+        <input
+          type="date"
+          name="data-final"
+          id="data-final"
+          required
+          value={endDate}
+          onChange={handleEndDateChange}
+          min={startDate}
         />
       </div>
 
