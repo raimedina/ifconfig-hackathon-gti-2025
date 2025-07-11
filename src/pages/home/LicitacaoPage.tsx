@@ -4,7 +4,6 @@ import Pagination from "../../components/pagination/Pagination"
 import Title from "../../components/title/Title"
 
 function Licitacao() {
-
   return (
     <>
       <Title text="Compras - Licitações" />

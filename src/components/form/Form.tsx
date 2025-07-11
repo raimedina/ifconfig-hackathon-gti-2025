@@ -1,33 +1,19 @@
-import { useEffect, useState } from 'react';
 import './Form.css';
+import { useEffect, useState } from 'react';
 import { FaAngleRight, FaAngleDown } from 'react-icons/fa';
-
+import { modalidadeOptions, situacaoOptions, unidadeGestoraOptions } from '../../data/form/formData';
+import { formatDate, nextYear, today } from '../../utils/date/FormatDate';
 
 interface FormData {
   unidadeGestora: string;
-  dataInicio: string;
-  dataFim: string;
-  modalidade: string;
-  situacao: string;
-  palavraChave: string;
+  dataInicio?: string;
+  dataFim?: string;
+  modalidade?: string;
+  situacao?: string;
+  palavraChave?: string;
 }
 
-const unidadeGestoraOptions = ['IFSC', 'Prefeitura', 'Outros'];
-const modalidadeOptions = ['Pregão', 'Concorrência', 'Dispensa'];
-const situacaoOptions = ['Aberta', 'Encerrada', 'Em andamento'];
-
-const today = new Date();
-const nextYear = new Date();
-nextYear.setFullYear(today.getFullYear() + 1);
-
-const formatDate = (date: Date) => {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
-};
-
-const Form: React.FC = () => {
+function Form() {
   const [formData, setFormData] = useState<FormData>({
     unidadeGestora: '',
     dataInicio: formatDate(today),
@@ -110,7 +96,6 @@ const Form: React.FC = () => {
             name="modalidade"
             value={formData.modalidade}
             onChange={handleInputChange}
-            required
           >
             <option value="">Selecione</option>
             {modalidadeOptions.map(opt => (
@@ -129,7 +114,6 @@ const Form: React.FC = () => {
             name="situacao"
             value={formData.situacao}
             onChange={handleInputChange}
-            required
           >
             <option value="">Selecione</option>
             {situacaoOptions.map(opt => (
@@ -148,7 +132,6 @@ const Form: React.FC = () => {
           name="palavraChave"
           value={formData.palavraChave}
           onChange={handleInputChange}
-          required
         />
       </div>
 

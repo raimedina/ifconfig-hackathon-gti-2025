@@ -109,4 +109,3 @@ function useParams(): { numero: string | undefined } {
     const numero = urlParams.get("numero") || undefined;
     return { numero };
 }
-
