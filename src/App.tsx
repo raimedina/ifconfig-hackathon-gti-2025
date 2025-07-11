@@ -8,12 +8,14 @@ import Footer from './components/footer/Footer'
 import BIPage from './pages/BI/BIPage'
 import IAPage from './pages/IAPage/IAPage'
 import Body from './components/body/Body'
+import Menu from './components/menu/Menu'
 
 function App() {
 
   return (
     <Router>
       <Header />
+      {/* <Menu /> */}
       <Body>
         <Routes>
         <Route path="/" element={<Licitacao />} />

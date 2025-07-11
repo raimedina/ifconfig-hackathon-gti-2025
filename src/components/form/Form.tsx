@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Form.css';
 import { FaAngleRight, FaAngleDown } from 'react-icons/fa';
 
@@ -42,14 +42,13 @@ const Form: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handlePeriodoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const [inicio, fim] = e.target.value.split(' - ');
-    setFormData(prev => ({
-      ...prev,
-      dataInicio: inicio.trim(),
-      dataFim: fim?.trim() || '',
-    }));
-  };
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+
+  useEffect(() => {
+    setStartDate(today.toDateString())
+    setEndDate(nextYear.toDateString())
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,21 +78,29 @@ const Form: React.FC = () => {
 
 
       <div className="form-group">
-        <label htmlFor="periodo">Período</label>
+        <label htmlFor="data-inicial">Data Inicial</label>
         <input
-          type="text"
-          id="periodo"
-          name="periodo"
-          placeholder="dd/mm/aaaa - dd/mm/aaaa"
-          value={
-            formData.dataInicio && formData.dataFim
-              ? `${formData.dataInicio} - ${formData.dataFim}`
-              : ''
-          }
-          onChange={handlePeriodoChange}
+          type="date"
+          name="data-inicial"
+          id="data-inicial"
           required
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
         />
       </div>
+
+      <div className="form-group">
+        <label htmlFor="data-final">Data Final</label>
+        <input
+          type="date"
+          name="data-final"
+          id="data-final"
+          required
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+        />
+      </div>
+
 
       <div className="form-group">
         <label htmlFor="modalidade">Modalidade</label>
