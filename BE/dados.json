@@ -1,140 +1,477 @@
 {
-    "informacao": "Licitacao",
-    "ultimaAtualizacao": "03/10/2023",
-    "totalRegistros": 2,
-    "registros": [
-      {
-        "registro": {
-          "licitacao": {
-            "numero": "100132022",
-            "modalidade": "Pregão",
-            "valorEstimado": "10248.25",
-            "objetoResumido": "CONTRATAÇÃO DE SERVIÇOS DE DESENVOLVIMENTO/MANUTENÇÃO DE SOFTWARE CUSTOMIZADO PARA ARMAZENAMENTO DE DADOS PÚBLICOS PARA AUXILIAR NA TRANSPARÊNCIA MUNICIPAL.",
-            "dataEmissao": "2022-03-09",
-            "aberturaData": "2022-03-12",
-            "finalidade": "Compras e Outros Serviços",
-            "formaJulgamento": "Por item"
-          },
-          "unidadeGestora": {
-            "codigo": "3",
-            "denominacao": "Prefeitura Municipal"
-          },
-          "advogado": {
-            "pessoa": {
-              "nome": "IRINEU JOSÉ DOS PASSOS"
-            }
-          },
-          "listItens": [
-            {
-              "numero": "2",
-              "denominacao": "MANUTENÇÃO DO SISTEMA ELETRÔNICO DE PROTOCOLOS E SOLICITAÇÕES",
-              "quantidade": "12.0",
-              "unidadeMedida": "SERVIÇO",
-              "valorUnitarioEstimado": "589.75",
-              "situacao": "Homologado",
-              "listVencedores": [
-                {
-                  "fornecedor": "MR. ROBOT SISTEMAS LTDA",
-                  "quantidade": "12.0",
-                  "valorUnitario": "1829.5",
-                  "situacao": "Vencedor"
-                }
-              ]
-            },
-            {
-              "numero": "7",
-              "denominacao": "DESENVOLVIMENTO E MANUTENÇÃO DE APLICATIVO",
-              "quantidade": "1.0",
-              "unidadeMedida": "SERVIÇO",
-              "valorUnitarioEstimado": "3500.00",
-              "situacao": "Homologado",
-              "listVencedores": [
-                {
-                  "fornecedor": "EAS-MOBILE LTDA",
-                  "quantidade": "1.0",
-                  "valorUnitario": "2000.0",
-                  "situacao": "Vencedor"
-                }
-              ]
-            }
-          ],
-          "listTextos": [
-            {
-              "denominacao": "PROCESSO LICITATÓRIO Nº 43/2022 PREGÃO ELETRÔNICO Nº 18/2022",
-              "link": "http://localhost:8080/epublica-file-server/rest/file/public?params=dbm39a47e93a574571d88d4de62a5ef244c09d8ec1c339dcaadfcb0f34ae1fe5a4e3d21c0be7268b346c75t6h1ba80bf"
-            }
-          ]
-        }
-      },
-      {
-        "registro": {
-          "licitacao": {
-            "numero": "100082022",
-            "modalidade": "Tomada de Preço",
-            "valorEstimado": "20048.5",
-            "objetoResumido": "CONTRATAÇÃO DE EMPRESA PARA A PRESTAÇÃO DE SERVIÇOS DE ENGENHARIA PARA CONCLUSÃO DA CONSTRUÇÃO DO ESPAÇO EDUCATIVO.",
-            "dataEmissao": "2022-02-22",
-            "aberturaData": "2022-03-23",
-            "finalidade": "Obras e Serviços de Engenharia",
-            "formaJulgamento": "Por item"
-          },
-          "unidadeGestora": {
-            "codigo": "8",
-            "denominacao": "Fundo Municipal de Educação do Município"
-          },
-          "advogado": {
-            "pessoa": {
-              "nome": "JUSCELINO OLIVEIRA"
-            }
-          },
-          "listItens": [
-            {
-              "numero": "1",
-              "denominacao": "CONTRATAÇÃO DE EMPRESA PARA PRESTAÇÃO DOS SERVIÇOS DE CONCLUSÃO DA CONSTRUÇÃO DO ESPAÇO EDUCATIVO",
-              "quantidade": "1.0",
-              "unidadeMedida": "SERVIÇO",
-              "valorUnitarioEstimado": "5089.8",
-              "situacao": "Homologado",
-              "listVencedores": [
-                {
-                  "fornecedor": "BOB ENGENHARIA EIRELI",
-                  "quantidade": "2.0",
-                  "valorUnitario": "1849.5",
-                  "situacao": "Vencedor"
-                }
-              ]
-            }
-          ],
-          "listTextos": [
-            {
-              "denominacao": "EDITAL - PL08/2022 TP05/2022 - CENTRO EDUCATIVO",
-              "link": "http://localhost:8080/epublica-file-server/rest/file/public?params=dbm39a47e93a574571d895h6e62a5ef244c09d8ec1c339dcaadfcb0f34ae1fe1ht323d21c0be7268b346c75t6h1ba80f"
-            }
-          ],
-          "listEmpenhos": [
-            {
-              "emissao": "2019-12-19",
-              "numero": "2810",
-              "objetoResumido": "EMPENHO REF. NOSSA AQUISIÇÃO DE MATERIAIS DESTINADOS A CONSTRUÇÃO DO ESPAÇO EDUCATIVO",
-              "especie": "Ordinário",
-              "categoria": "Comum",
-              "contrato": "080/2019",
-              "licitacao": "042/2019PP",
-              "recursoDiaria": "null"
-            }
-          ],
-          "listContratos": [
-            {
-              "numero": "2810",
-              "assinatura": "2019-12-19",
-              "inicioVigencia": "2019-12-19",
-              "vencimento": "2019-12-31",
-              "valorTotal": "10581.65",
-              "objetoResumido": "Aquisição de materiais destinados a melhorias no espaço educativo"
-            }
-          ]
-        }
+  "informacao": "Licitacao",
+  "ultimaAtualizacao": "03/10/2023",
+  "totalRegistros": 10,
+  "registros": [
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100102022",
+          "modalidade": "Pregão",
+          "valorEstimado": "10000.00",
+          "objetoResumido": "OBJETO TESTE 0 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-12",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "1",
+          "denominacao": "Prefeitura Municipal"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "IRINEU JOSÉ DOS PASSOS"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 0",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "500.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "MR. ROBOT SISTEMAS LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "600.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 0",
+            "link": "http://localhost:8080/teste/0"
+          }
+        ]
       }
-    ]
-  }
-  
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100112022",
+          "modalidade": "Tomada de Preço",
+          "valorEstimado": "11500.00",
+          "objetoResumido": "OBJETO TESTE 1 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-13",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "2",
+          "denominacao": "Fundo Municipal de Educação do Município"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "JUSCELINO OLIVEIRA"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 1",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "510.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "EAS-MOBILE LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "610.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 1",
+            "link": "http://localhost:8080/teste/1"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100122022",
+          "modalidade": "Pregão",
+          "valorEstimado": "13000.00",
+          "objetoResumido": "OBJETO TESTE 2 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-14",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "3",
+          "denominacao": "Prefeitura Municipal"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "IRINEU JOSÉ DOS PASSOS"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 2",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "520.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "MR. ROBOT SISTEMAS LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "620.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 2",
+            "link": "http://localhost:8080/teste/2"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100132022",
+          "modalidade": "Tomada de Preço",
+          "valorEstimado": "14500.00",
+          "objetoResumido": "OBJETO TESTE 3 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-15",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "4",
+          "denominacao": "Fundo Municipal de Educação do Município"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "JUSCELINO OLIVEIRA"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 3",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "530.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "EAS-MOBILE LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "630.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 3",
+            "link": "http://localhost:8080/teste/3"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100142022",
+          "modalidade": "Pregão",
+          "valorEstimado": "16000.00",
+          "objetoResumido": "OBJETO TESTE 4 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-16",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "5",
+          "denominacao": "Prefeitura Municipal"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "IRINEU JOSÉ DOS PASSOS"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 4",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "540.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "MR. ROBOT SISTEMAS LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "640.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 4",
+            "link": "http://localhost:8080/teste/4"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100152022",
+          "modalidade": "Tomada de Preço",
+          "valorEstimado": "17500.00",
+          "objetoResumido": "OBJETO TESTE 5 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-17",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "6",
+          "denominacao": "Fundo Municipal de Educação do Município"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "JUSCELINO OLIVEIRA"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 5",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "550.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "EAS-MOBILE LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "650.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 5",
+            "link": "http://localhost:8080/teste/5"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100162022",
+          "modalidade": "Pregão",
+          "valorEstimado": "19000.00",
+          "objetoResumido": "OBJETO TESTE 6 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-18",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "7",
+          "denominacao": "Prefeitura Municipal"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "IRINEU JOSÉ DOS PASSOS"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 6",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "560.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "MR. ROBOT SISTEMAS LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "660.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 6",
+            "link": "http://localhost:8080/teste/6"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100172022",
+          "modalidade": "Tomada de Preço",
+          "valorEstimado": "20500.00",
+          "objetoResumido": "OBJETO TESTE 7 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-19",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "8",
+          "denominacao": "Fundo Municipal de Educação do Município"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "JUSCELINO OLIVEIRA"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 7",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "570.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "EAS-MOBILE LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "670.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 7",
+            "link": "http://localhost:8080/teste/7"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100182022",
+          "modalidade": "Pregão",
+          "valorEstimado": "22000.00",
+          "objetoResumido": "OBJETO TESTE 8 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-20",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "9",
+          "denominacao": "Prefeitura Municipal"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "IRINEU JOSÉ DOS PASSOS"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 8",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "580.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "MR. ROBOT SISTEMAS LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "680.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 8",
+            "link": "http://localhost:8080/teste/8"
+          }
+        ]
+      }
+    },
+    {
+      "registro": {
+        "licitacao": {
+          "numero": "100192022",
+          "modalidade": "Tomada de Preço",
+          "valorEstimado": "23500.00",
+          "objetoResumido": "OBJETO TESTE 9 - Contratação de serviços especializados.",
+          "dataEmissao": "2022-03-09",
+          "aberturaData": "2022-03-21",
+          "finalidade": "Compras e Outros Serviços",
+          "formaJulgamento": "Por item"
+        },
+        "unidadeGestora": {
+          "codigo": "10",
+          "denominacao": "Fundo Municipal de Educação do Município"
+        },
+        "advogado": {
+          "pessoa": {
+            "nome": "JUSCELINO OLIVEIRA"
+          }
+        },
+        "listItens": [
+          {
+            "numero": "1",
+            "denominacao": "SERVIÇO TESTE 9",
+            "quantidade": "10.0",
+            "unidadeMedida": "SERVIÇO",
+            "valorUnitarioEstimado": "590.00",
+            "situacao": "Homologado",
+            "listVencedores": [
+              {
+                "fornecedor": "EAS-MOBILE LTDA",
+                "quantidade": "10.0",
+                "valorUnitario": "690.00",
+                "situacao": "Vencedor"
+              }
+            ]
+          }
+        ],
+        "listTextos": [
+          {
+            "denominacao": "PROCESSO TESTE Nº 9",
+            "link": "http://localhost:8080/teste/9"
+          }
+        ]
+      }
+    }
+  ]
+}
