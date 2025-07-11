@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <Menu />
+      {/* <Menu /> */}
       <Body>
         <Routes>
         <Route path="/" element={<Licitacao />} />
