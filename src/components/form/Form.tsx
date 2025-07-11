@@ -83,7 +83,7 @@ const Form: React.FC = () => {
           type="date"
           name="data-inicial"
           id="data-inicial"
-          required
+          
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
         />
@@ -95,7 +95,6 @@ const Form: React.FC = () => {
           type="date"
           name="data-final"
           id="data-final"
-          required
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
         />
@@ -110,7 +109,6 @@ const Form: React.FC = () => {
             name="modalidade"
             value={formData.modalidade}
             onChange={handleInputChange}
-            required
           >
             <option value="">Selecione</option>
             {modalidadeOptions.map(opt => (
@@ -129,7 +127,6 @@ const Form: React.FC = () => {
             name="situacao"
             value={formData.situacao}
             onChange={handleInputChange}
-            required
           >
             <option value="">Selecione</option>
             {situacaoOptions.map(opt => (
@@ -148,7 +145,6 @@ const Form: React.FC = () => {
           name="palavraChave"
           value={formData.palavraChave}
           onChange={handleInputChange}
-          required
         />
       </div>
 
