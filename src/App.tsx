@@ -1,13 +1,13 @@
 import './index.css'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Licitacao from './pages/home/LicitacaoPage'
-import { DetailsPage } from './pages/details/DetailsPage'
-import NotFoundPage from './pages/notFound/NotFoundPage'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
+import Body from './components/body/Body'
+import { DetailsPage } from './pages/details/DetailsPage'
+import Licitacao from './pages/home/LicitacaoPage'
+import NotFoundPage from './pages/notFound/NotFoundPage'
 import BIPage from './pages/BI/BIPage'
 import IAPage from './pages/IAPage/IAPage'
-import Body from './components/body/Body'
 
 function App() {
 

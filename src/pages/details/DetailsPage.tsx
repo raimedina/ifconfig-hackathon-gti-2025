@@ -1,5 +1,7 @@
 import { FaDownload, FaChevronRight } from "react-icons/fa";
 import "./DetailsPage.css";
+import { getTipoDescricao } from "../../utils/descricao/TipoDescricao";
+import { useParams } from '../../utils/parametros_url/UseParams';
 
 export const DetailsPage = () => {
   const { numero } = useParams();
@@ -93,19 +95,3 @@ export const DetailsPage = () => {
     </div>
   );
 };
-
-function getTipoDescricao(texto: string) {
-  const mapa: Record<string, string> = {
-    EDITAL: "Edital",
-    TR: "Termo de referência",
-    ETP: "Estudo Técnico Preliminar (ETP)",
-    DFD: "Documento de formalização de demanda",
-    ORÇAMENTO: "Orçamento estimado",
-  };
-  return mapa[texto] || "Documento";
-}
-function useParams(): { numero: string | undefined } {
-    const urlParams = new URLSearchParams(window.location.search);
-    const numero = urlParams.get("numero") || undefined;
-    return { numero };
-}

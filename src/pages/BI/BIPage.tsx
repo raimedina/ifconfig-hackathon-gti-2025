@@ -7,7 +7,7 @@ function BIPage() {
       <Title text="Dashboard BI" />
 
       <div className="sub-title">
-        <h4>Página que irá apresentar o Dashboard e ChatBot</h4>
+        <h1>Dashboard Power BI</h1>
       </div>
 
       <div className="powerbi-frame">
